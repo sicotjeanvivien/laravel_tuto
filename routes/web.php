@@ -14,7 +14,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [IndexController::class, 'index'])->name('index');
+Route::get('/', [IndexController::class, 'index'])
+    ->name('index');
+Route::get('/post/create', [IndexController::class, 'create'])
+    ->name("post.create");
+Route::post('/post/create', [IndexController::class, 'store'])
+    ->name('post.store');
 Route::get('/post/{id}', [IndexController::class, 'show'])
     ->name('show')
     ->whereNumber('id');
